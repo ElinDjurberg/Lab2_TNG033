@@ -87,15 +87,15 @@ int main() {
      *****************************************************/
     std::cout << "\nTEST PHASE 4\n";
 
-    //p4[2] = 8;
-    //std::cout << "p4 = " << p4 << '\n';
+    p4[2] = 8;
+    std::cout << "p4 = " << p4 << '\n';
 
-    //if (abs(p4[1]) < EPSILON)  // compare a double with zero
-    //{
-    //    std::cout << "Coefficient 1 of p4 is zero!\n";
-    //}
+    if (abs(p4[1]) < EPSILON)  // compare a double with zero
+    {
+        std::cout << "Coefficient 1 of p4 is zero!\n";
+    }
 
-    //std::cout << "Coefficient zero of p1: " << p1[0] << '\n';
+    std::cout << "Coefficient zero of p1: " << p1[0] << '\n';
 
 
 

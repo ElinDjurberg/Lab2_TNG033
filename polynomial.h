@@ -14,23 +14,25 @@
 class Polynomial : public Expression
 {
 public:
-	
-	//vilken av dom???
+
 	explicit Polynomial(const int i, const double arr[]);
 
-	//explicit Polynomial(const int i, const double arr[])
-	//	: degree{ i }, coefficient{ new double[i + 1] }
-	//{  }
-
+	// copy constructor
+	Polynomial(const Polynomial& p);
 
 	Polynomial* clone() const override;
+
+
+	//tillger värde
+	double& operator[](int i);
+
+	// skriver ut värdet
+	const double& operator[](int i) const;
 
 	//default constructors
 	Polynomial(double d);
 
-	Polynomial operator=(const Polynomial P);
-
-	Polynomial::copy(const Polynomial R);
+	Polynomial& operator=( Polynomial P);
 
 //kanske inte behöver protected
 protected:

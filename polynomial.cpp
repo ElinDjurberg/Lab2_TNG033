@@ -5,7 +5,6 @@
 
 #include "polynomial.h"
 
-//ADD implementation of the member functions for class Polynomial
 
 //const för vi vill ej ändra arrayn eller graden
 //Vi skapar/kopierar över till en ny array för att skapa polynomet. 
@@ -33,11 +32,28 @@ Polynomial::Polynomial(double d)
 
 }
 
+
+//copy constructor
+// ska inte retuernera något
+Polynomial::Polynomial(const Polynomial& p):
+	degree{p.degree}, coefficient{new double[p.degree+1]{0.0}}
+{
+	double slots = degree + 1;
+
+	for (int i = 0; i <slots; i++){
+		this->coefficient[i] = p.coefficient[i];
+	}
+}
+
+
+
+// klon funktion
 Polynomial* Polynomial::clone() const {
 
 	Polynomial* p1 = new Polynomial(*this);
 	return p1;
 }
+
 
 
 //obs ej exakt samma vissuella output
@@ -62,34 +78,33 @@ void Polynomial::display(std::ostream& os) const {
 
 }
 
+
+
+
 //vi är i this
-//måste skriva Polynomial Polynomial
-//använd kopy konstructor
-//swapa adresser
-Polynomial Polynomial::operator=(const Polynomial P) {
+//använd copy konstructor
+//swapa adresser, Lecture 5, slide 27
+// vi är referensen ör this (polynom) för att ändra dess egenskaper
+// inte refrens i det vi får in i argumentet, det ska vi inte ändra
+Polynomial& Polynomial::operator=( Polynomial P) {
+	std::swap(degree, P.degree);
+	std::swap(coefficient, P.coefficient);
 
-	//vi vill lägga ny här??
-	Polynomial newPolly  = Polynomial(P.degree, P.coefficient);
-	return newPolly;
+	return *this;
 }
 
-//Polynomial copy(const Polynomial R) {
-//
-//	Polynomial p1{ R., v1 };
-//
-//	Polynomial newPolynomial = new Polynomial(R.degree, R.c)
-//}
 
-Polynomial::copy(const Polynomial R)
-	: degree{ R.degree }, coefficient{ new double[degree + 1] }
-{
-	double arr[]{ 0.0 };
-	for (int i = 0; i <= degree; i++) {
-		arr[i] = coefficient[i];
-	}
 
+
+double& Polynomial::operator[]( int i) {
+
+	return this->coefficient[i];
 }
 
+const double& Polynomial::operator[](int i) const {
+
+	return this->coefficient[i];
+}
 
 
 //root ska kolla om den är en lösning till functionen
