@@ -17,9 +17,7 @@ class Expression
 public:
 	// Destructor Man måste ha en destructor
 	virtual ~Expression() = default;  // Expression is a polymorphic class
-
-	friend std::ostream& operator<<(std::ostream& os, const Expression& a);
-
+	
 	//vi sätter den till 0 och tvingar subclasserna att implementera denna funktion
 	virtual Expression* clone() const = 0;  // polymorphic copying
 
@@ -28,7 +26,10 @@ public:
 	virtual double operator()(const double d) const = 0;
 
 	//virtual har vi för att datorn ska gå till den funktionen vi pekar på och ej den vi är i. Överanvänd ej virtual dock. 
-	virtual bool isRoot(const double x) const = 0;
+	bool isRoot(const double x) const;
+
+	//denna måste vara en vänn
+	friend std::ostream& operator<<(std::ostream& os, const Expression& a);
 
   //protected är att subclasserna kan komma åt dem men ingen annan.
 protected:

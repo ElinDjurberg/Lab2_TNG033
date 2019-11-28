@@ -110,14 +110,14 @@ int main() {
      *****************************************************/
     std::cout << "\nTEST PHASE 5\n";
 
-   /* p4 = p1 + p2;
+    p4 = p1 + p2;
     std::cout << "p4 = " << p4 << '\n' << '\n';
 
     std::cout << "p1 = " << p1 << '\n';
     std::cout << "p2 = " << p2 << '\n';
     std::cout << "p3 = " << p3 << '\n';
     std::cout << "p1 + p3 + p2 = " << p1 + p3 + p2 << '\n';
-*/
+
     /*****************************************************
      * TEST PHASE 6                                       *
      * Polynomial: const+P and P+const                    *

@@ -20,5 +20,23 @@ std::ostream& operator<<(std::ostream& os, const Expression& a)
 }
 
 
+//root ska kolla om den är en lösning till functionen
+//operator() om den = 0 så är det en root.
+//operator() ska kolla vad uttrycket blir
+bool Expression::isRoot(const double x) const {
+
+	//double b = operator()(x);
+
+
+	if (std::abs(x) < EPSILON) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
+
 //ADD implementation of the member functions for class Expression
 

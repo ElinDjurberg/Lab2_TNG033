@@ -12,6 +12,7 @@
 //vi har <= n för att nå upp till slotten
 //p(degree, coefficient)
 //coefficient är en pekare som pekar till en array
+//new är i heap och dynamiskt.
 Polynomial::Polynomial(const int n, const double arr[])
 	: degree{ n }, coefficient{ new double[n + 1] }
 {
@@ -29,6 +30,28 @@ Polynomial::Polynomial(const int n, const double arr[])
 Polynomial::Polynomial(double d)
 	: degree{ 0 }, coefficient{ new double[1]{d} }
 {
+
+}
+
+
+//Polynomial::~Polynomial(Polynomial& p) {
+//
+//	delete = p.degree;
+//	delete[] p;
+//	p = nullptr;
+//
+//
+//}
+
+
+//sätter graden till 0
+//raderar arrayn som coefficient pekar på 
+//sätter pekaren till null
+Polynomial::~Polynomial() {
+
+	degree = 0;
+	delete[] coefficient;
+	coefficient = nullptr;
 
 }
 
@@ -53,6 +76,8 @@ Polynomial* Polynomial::clone() const {
 	Polynomial* p1 = new Polynomial(*this);
 	return p1;
 }
+
+
 
 
 
@@ -86,7 +111,10 @@ void Polynomial::display(std::ostream& os) const {
 //swapa adresser, Lecture 5, slide 27
 // vi är referensen ör this (polynom) för att ändra dess egenskaper
 // inte refrens i det vi får in i argumentet, det ska vi inte ändra
-Polynomial& Polynomial::operator=(Polynomial P) {
+Polynomial Polynomial::operator=(Polynomial P) {
+
+	//ska den se ut såhär??
+	//Polynomial temp = Polynomial(P);
 	std::swap(degree, P.degree);
 	std::swap(coefficient, P.coefficient);
 
@@ -95,18 +123,85 @@ Polynomial& Polynomial::operator=(Polynomial P) {
 
 
 
+////
+//3st additationsoperatorer för vi ska addera 2polynom med varandra, en double med polynom samt en polynom med en double.
+//	Polynomial& Polynomial::operator+(const Polynomial P) const {
+//	
+//	//hur funcar dynamic alocated array. Behöver vi inte oroa oss för att hamna out of bounderies?? Växer den automatiskt?? Var 
+//
+//	//vi är i this och vi får in P
+//	//vi vill jämföra degrees av polynom och ta den som är störrst och antingen skapa en ny eller ändra i den vi har.
+//	  if (this->degree >= P.degree) {
+//		  //det är vår temp som inte funkar
+//		  Polynomial temp = this*;
+//		  //std::cout << temp;
+//
+//		  //använd dens degree och array
+//		  for (int i = 0; i <= P.degree; i++) {
+//
+//			temp.coefficient[i] = this->coefficient[i] + P.coefficient[i];
+//		  }
+//
+//		  return temp;
+//	 }
+//	 // this->degree < P.degree
+//	  else {
+//		  //använ P.degrees array
+//		  Polynomial temp = Polynomial(P);
+//		  for (int i = 0; i <= this->degree; i++) {
+//
+//			 temp.coefficient[i] = this->coefficient[i] + P.coefficient[i];;
+//		  }
+//		  return temp;
+//	  }
+//
+//}
+
+
+	Polynomial operator+(const Polynomial lhs, const Polynomial rhs) {
+
+		//hur funcar dynamic alocated array. Behöver vi inte oroa oss för att hamna out of bounderies?? Växer den automatiskt?? Var 
+
+		//vi är i this och vi får in P
+		//vi vill jämföra degrees av polynom och ta den som är störrst och antingen skapa en ny eller ändra i den vi har.
+		if (lhs.degree > rhs.degree || lhs.degree == rhs.degree) {
+			Polynomial temp = Polynomial (lhs);
+			//använd dens degree och array
+			for (int i = 0; i <= rhs.degree; i++) {
+
+				temp.coefficient[i] = lhs.coefficient[i] + rhs.coefficient[i];
+			}
+
+			return temp;
+		}
+		// this->degree < P.degree
+		else {
+			//använ P.degrees array
+			Polynomial temp = rhs;
+			for (int i = 0; i <= lhs.degree; i++) {
+
+				temp.coefficient[i] = lhs.coefficient[i] + rhs.coefficient[i];;
+			}
+			return temp;
+		}
+
+	}
+
 //fortsätt jobba med kolla om den är rätt
+	//Denna är för vänster sida och den vill vi kunna ändra på .
 double& Polynomial::operator[](int i) {
 
 	return this->coefficient[i];
 }
 
 
-//fortsätt jobba med kolla om den är rätt
+//Den är på höger sida av en tilldelningssats i huvudprogrammet. Datorn går in och hämtar värdet till den adressen vi har lagt ut.
 const double& Polynomial::operator[](int i) const {
 
 	return this->coefficient[i];
 }
+
+
 
 double Polynomial::operator()(const double d) const {
 
@@ -125,21 +220,5 @@ double Polynomial::operator()(const double d) const {
 	return sum;
 }
 
-//root ska kolla om den är en lösning till functionen
-//operator() om den = 0 så är det en root.
-//operator() ska kolla vad uttrycket blir
-bool Polynomial::isRoot(const double x) const{
-
-	double b = operator()(x);
-
-	if (std::abs(b) < EPSILON) {
-		return true;
-	}
-	else {
-		return false;
-	}
-
-
-}
 
 

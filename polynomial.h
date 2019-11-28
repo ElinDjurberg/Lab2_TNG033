@@ -15,19 +15,20 @@ class Polynomial : public Expression
 {
 public:
 
+	//default constructors
+	Polynomial(double d);
 
-
+	//constructor
 	explicit Polynomial(const int i, const double arr[]);
 
-	//destructor. Ska denna bara vara default??
-	~Polynomial() = default;
 
 	// copy constructor
 	Polynomial(const Polynomial& p);
 
-	Polynomial* clone() const override;
+	//destructor. Ska denna kan inte vara default då vi på ett ställe har new vilket betyder att vi måste frigöra heapen.
+	~Polynomial();
 
-	virtual double operator()(const double d) const override;
+	Polynomial* clone() const override;
 
 
 	//tillger värde
@@ -36,12 +37,14 @@ public:
 	// skriver ut värdet
 	const double& operator[](int i) const;
 
-	//default constructors
-	Polynomial(double d);
 
-	virtual bool isRoot(const double x) const override;
+	virtual double operator()(const double d) const override;
 
-	Polynomial& operator=( Polynomial P);
+	//Polynomial& operator+(const Polynomial P) const;
+
+	friend Polynomial operator+(const Polynomial lhs, const Polynomial rhs);
+
+	Polynomial operator=(Polynomial P);
 
 //kanske inte behöver protected
 protected:
