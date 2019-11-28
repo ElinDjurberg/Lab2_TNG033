@@ -15,12 +15,19 @@ class Polynomial : public Expression
 {
 public:
 
+
+
 	explicit Polynomial(const int i, const double arr[]);
+
+	//destructor. Ska denna bara vara default??
+	~Polynomial() = default;
 
 	// copy constructor
 	Polynomial(const Polynomial& p);
 
 	Polynomial* clone() const override;
+
+	virtual double operator()(const double d) const override;
 
 
 	//tillger värde
@@ -31,6 +38,8 @@ public:
 
 	//default constructors
 	Polynomial(double d);
+
+	virtual bool isRoot(const double x) const override;
 
 	Polynomial& operator=( Polynomial P);
 

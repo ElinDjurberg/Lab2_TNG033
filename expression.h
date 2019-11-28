@@ -9,7 +9,7 @@
 #include <iostream>
 #include <cmath>
 
-const double EPSILON = 1.0e-5;
+constexpr double EPSILON = 1.0e-5;
 
 
 class Expression
@@ -22,6 +22,13 @@ public:
 
 	//vi sätter den till 0 och tvingar subclasserna att implementera denna funktion
 	virtual Expression* clone() const = 0;  // polymorphic copying
+
+	//const double för att vi ska ta in en double x men inte ändra på den
+	//Const = 0 tvingar subclasserna att implementera den.
+	virtual double operator()(const double d) const = 0;
+
+	//virtual har vi för att datorn ska gå till den funktionen vi pekar på och ej den vi är i. Överanvänd ej virtual dock. 
+	virtual bool isRoot(const double x) const = 0;
 
   //protected är att subclasserna kan komma åt dem men ingen annan.
 protected:
