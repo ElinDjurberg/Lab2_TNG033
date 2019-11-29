@@ -124,32 +124,32 @@ int main() {
      ******************************************************/
     std::cout << "\nTEST PHASE 6\n";
 
-  /*  p4 = 2.0 + p4;
+	 p4 = 2.0 + p4;
     std::cout << "p4 = " << p4 << '\n';
 
     p4 = 0 + p4 + 3.3;
     std::cout << "p4 = " << p4 << '\n';
-*/
+
     /*****************************************************
      * TEST PHASE 7                                      *
      * Logarithm: constructors and operator<<            *
      *****************************************************/
     std::cout << "\nTEST PHASE 7\n";
 
-    //Logarithm l0;  // default constructor
-    //Logarithm l1{p3 + 2, 2, 3, 10};
-    //Logarithm l2{l1};  // copy constructor
+    Logarithm l0;  // default constructor
+    Logarithm l1{p3 + 2, 2, 3, 10};// andra punkten i instructionen
+    Logarithm l2{l1};  // copy constructor
 
-    //std::cout << "l0 = " << l0 << '\n';
-    //std::cout << "l1 = " << l1 << '\n';
-    //std::cout << "l2 = " << l2 << '\n';
-
-
+    std::cout << "l0 = " << l0 << '\n';
+    std::cout << "l1 = " << l1 << '\n';
+    std::cout << "l2 = " << l2 << '\n';
 
 
-    //    Expression* e1 = new Polynomial(p4);
-    //    Expression* e2 = new Logarithm(l1);
-    //    *e1 = *e2; //<-- should not compile!!
+
+
+        Expression* e1 = new Polynomial(p4);
+        Expression* e2 = new Logarithm(l1);
+        *e1 = *e2; //<-- should not compile!!
 
     /*****************************************************
      * TEST PHASE 8                                      *

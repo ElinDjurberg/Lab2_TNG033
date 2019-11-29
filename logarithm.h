@@ -13,8 +13,18 @@
 
 class Logarithm : public Expression
 {
+public:
+	//Default constructor
+	Logarithm();
+	//Logarithm(const Expression E, const double C1, const double C2, const int b);
+	
 
-    //ADD CODE
+protected:
+
+private:
+	double C1 = 0.0;
+	double C2 = 1.00;
+	int b = 2;
 
 };
 

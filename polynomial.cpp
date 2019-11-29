@@ -24,6 +24,7 @@ Polynomial::Polynomial(const int n, const double arr[])
 }
 
 //Hur funkar denna?????
+//Denna gör att vi ej behöver 3st additionsoperatorer utan den konverterar vår dubbel till ett polynom
 //Vi måste konvertera double till ett polynom för att kunna addera ihop double med polynom. Då måste båda vara polynom
 //Double är polynom av grad 0
 //new double[1]{d} Ny array med 1 slot och initializerar den slotten med d
