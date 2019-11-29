@@ -26,7 +26,7 @@ std::ostream& operator<<(std::ostream& os, const Expression& a)
 bool Expression::isRoot(const double x) const {
 
 	//double b = operator()(x);
-
+	//kallar vi på den operatorn?
 
 	if (std::abs(x) < EPSILON) {
 		return true;

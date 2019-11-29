@@ -147,9 +147,9 @@ int main() {
 
 
 
-        Expression* e1 = new Polynomial(p4);
+		Expression* e1 = new Polynomial(p4);
         Expression* e2 = new Logarithm(l1);
-        *e1 = *e2; //<-- should not compile!!
+        //*e1 = *e2; //<-- should not compile!!
 
     /*****************************************************
      * TEST PHASE 8                                      *
@@ -175,16 +175,16 @@ int main() {
      *****************************************************/
     std::cout << "\nTEST PHASE 9\n";
 
-    /*std::cout << "l1(1) = " << l1(1) << '\n';
-    std::cout << "l3(1) = " << l3(1) << '\n';
-*/
+ /*   std::cout << "l1(1) = " << l1(1) << '\n';
+    std::cout << "l3(1) = " << l3(1) << '\n';*/
+
     /*****************************************************
      * TEST PHASE 10                                     *
      * Logarithm: isRoot                                 *
      *****************************************************/
     std::cout << "\nTEST PHASE 10\n";
 
-    /*const Logarithm l4;
+  /*  const Logarithm l4;
 
     if (l4.isRoot(1)) {
         std::cout << "One is a root of " << l4 << '\n';
@@ -197,26 +197,26 @@ int main() {
      * Expressions: dynamic binding                      *
      *****************************************************/
     std::cout << "\nTEST PHASE 11\n";
-
-   /* Polynomial p6{p4};
-    Polynomial p7{p2};
-
-    Expression *E[4]{&p6, &l1, &p7, &l0};
-
-    std::cout << "** evaluate " << '\n';
-    for (int i = 0; i < 4; i++) {
-        std::cout << "(" << *E[i] << ")"
-                  << "(1) = " << (*E[i])(1) << '\n';
-    }
-
-    std::cout << "\n** isRoot " << '\n';
-    for (int i = 0; i < 4; i++) {
-        if (E[i]->isRoot(1)) {
-            std::cout << "1 is a root of " << *E[i] << '\n';
-        } else {
-            std::cout << "1 is not a root of " << *E[i] << '\n';
-        }
-    }*/
-
-    return 0;
+//
+//	Polynomial p6{p4};
+//    Polynomial p7{p2};
+//
+//    Expression *E[4]{&p6, &l1, &p7, &l0};
+//
+//    std::cout << "** evaluate " << '\n';
+//    for (int i = 0; i < 4; i++) {
+//        std::cout << "(" << *E[i] << ")"
+//                  << "(1) = " << (*E[i])(1) << '\n';
+//    }
+//
+//    std::cout << "\n** isRoot " << '\n';
+//    for (int i = 0; i < 4; i++) {
+//        if (E[i]->isRoot(1)) {
+//            std::cout << "1 is a root of " << *E[i] << '\n';
+//        } else {
+//            std::cout << "1 is not a root of " << *E[i] << '\n';
+//        }
+//    }
+//
+//    return 0;
 }

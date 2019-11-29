@@ -20,7 +20,8 @@ Polynomial::Polynomial(const int n, const double arr[])
 	for (int i = 0; i <= n; i++) {
 		coefficient[i] = arr[i];
 	}
-
+	//delete[] coefficient;
+	//coefficient = nullptr;
 }
 
 //Hur funkar denna?????
@@ -108,6 +109,7 @@ void Polynomial::display(std::ostream& os) const {
 
 
 //vi är i this
+//Detta är assignment
 //använd copy konstructor
 //swapa adresser, Lecture 5, slide 27
 // vi är referensen ör this (polynom) för att ändra dess egenskaper
@@ -205,7 +207,7 @@ const double& Polynomial::operator[](int i) const {
 
 
 double Polynomial::operator()(const double d) const {
-
+	
 	double sum = 0.0;
 
 	for (int i = 0; i < this->degree + 1; i++) {
