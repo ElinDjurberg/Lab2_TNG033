@@ -20,7 +20,7 @@ public:
 
 
 	//Destructor
-	//~Logarithm();
+	~Logarithm();
 
 	Logarithm operator=(Logarithm log);
 

@@ -30,17 +30,22 @@ Logarithm::Logarithm() :C1{ 0.0 }, C2{ 1.0 }, b{ 2 } {
 Logarithm::Logarithm(const Logarithm& log) : C1{ log.C1 }, C2{ log.C2 }, b{ log.b }, basclassptr{ log.basclassptr->clone() }{
 }
 
-/*
+
 Logarithm::~Logarithm() {
 
 	C1 = 0.00;
 	C2 = 0.00;
 	b = 0;
-	delete[] basclassptr;
-	basclassptr = nullptr;
-
 	
-}*/
+	//delete[] basclassptr;
+	//basclassptr = nullptr;
+
+
+	//varför?
+	delete basclassptr;
+	basclassptr = nullptr;
+	
+}
 
 //hur funkar denna?? basclassptr = E.clone(); och vad säger Expression()
 //vi kan inte ha const för då kan vi inte assigna den 	Expression* e1 = new Polynomial(p4);

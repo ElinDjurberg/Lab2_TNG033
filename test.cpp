@@ -137,7 +137,7 @@ int main() {
     std::cout << "\nTEST PHASE 7\n";
 	/*
 	HÄR BÖRJAR MEMORY LEAKS
-	5 LEAKS FINNS HÄR
+	2 LEAKS FINNS HÄR
 	*/
 
 
