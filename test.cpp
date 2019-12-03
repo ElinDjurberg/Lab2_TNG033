@@ -157,17 +157,17 @@ int main() {
      *****************************************************/
     std::cout << "\nTEST PHASE 8\n";
 
-    //Logarithm l3{p4, 1, 1, 2};
+    Logarithm l3{p4, 1, 1, 2};
 
-    //l2 = l0 = l3;
+    l2 = l0 = l3;
 
-    //// Test that memory is not shared between expressions
-    //p4[0] = 2;
+    // test that memory is not shared between expressions
+    p4[0] = 2;
 
-    //std::cout << "p4 = " << p4 << '\n';
-    //std::cout << "l0 = " << l0 << '\n';
-    //std::cout << "l2 = " << l2 << '\n';
-    //std::cout << "l3 = " << l3 << '\n';
+    std::cout << "p4 = " << p4 << '\n';
+    std::cout << "l0 = " << l0 << '\n';
+    std::cout << "l2 = " << l2 << '\n';
+    std::cout << "l3 = " << l3 << '\n';
 
     /*****************************************************
      * TEST PHASE 9                                      *
@@ -175,8 +175,8 @@ int main() {
      *****************************************************/
     std::cout << "\nTEST PHASE 9\n";
 
- /*   std::cout << "l1(1) = " << l1(1) << '\n';
-    std::cout << "l3(1) = " << l3(1) << '\n';*/
+    std::cout << "l1(1) = " << l1(1) << '\n';
+    std::cout << "l3(1) = " << l3(1) << '\n';
 
     /*****************************************************
      * TEST PHASE 10                                     *
@@ -184,39 +184,39 @@ int main() {
      *****************************************************/
     std::cout << "\nTEST PHASE 10\n";
 
-  /*  const Logarithm l4;
+    const Logarithm l4;
 
     if (l4.isRoot(1)) {
         std::cout << "One is a root of " << l4 << '\n';
     } else {
         std::cout << "One is not a root of " << l4 << '\n';
-    }*/
+    }
 
     /*****************************************************
      * TEST PHASE 11                                     *
      * Expressions: dynamic binding                      *
      *****************************************************/
     std::cout << "\nTEST PHASE 11\n";
-//
-//	Polynomial p6{p4};
-//    Polynomial p7{p2};
-//
-//    Expression *E[4]{&p6, &l1, &p7, &l0};
-//
-//    std::cout << "** evaluate " << '\n';
-//    for (int i = 0; i < 4; i++) {
-//        std::cout << "(" << *E[i] << ")"
-//                  << "(1) = " << (*E[i])(1) << '\n';
-//    }
-//
-//    std::cout << "\n** isRoot " << '\n';
-//    for (int i = 0; i < 4; i++) {
-//        if (E[i]->isRoot(1)) {
-//            std::cout << "1 is a root of " << *E[i] << '\n';
-//        } else {
-//            std::cout << "1 is not a root of " << *E[i] << '\n';
-//        }
-//    }
-//
-//    return 0;
+
+	Polynomial p6{p4};
+    Polynomial p7{p2};
+
+    Expression *E[4]{&p6, &l1, &p7, &l0};
+
+    std::cout << "** evaluate " << '\n';
+    for (int i = 0; i < 4; i++) {
+        std::cout << "(" << *E[i] << ")"
+                  << "(1) = " << (*E[i])(1) << '\n';
+    }
+
+    std::cout << "\n** isRoot " << '\n';
+    for (int i = 0; i < 4; i++) {
+        if (E[i]->isRoot(1)) {
+            std::cout << "1 is a root of " << *E[i] << '\n';
+        } else {
+            std::cout << "1 is not a root of " << *E[i] << '\n';
+        }
+    }
+
+    return 0;
 }

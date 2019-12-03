@@ -17,9 +17,13 @@ public:
 	//Default constructor
 	Logarithm();
 	Logarithm(const Expression& E, const double c1, const double c2, int B);
+
+
 	//Destructor
 	//~Logarithm();
+
 	Logarithm operator=(Logarithm log);
+
 	//Logarithm(const Expression E, const double C1, const double C2, const int b);
 	Logarithm* clone() const override;
 	Logarithm(const Logarithm& log);

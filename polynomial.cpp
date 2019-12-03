@@ -91,19 +91,19 @@ void Polynomial::display(std::ostream& os) const {
 	//vi är i polynomet och behöver därför ej skriva this för att komma åt degree och coefficient
 	for (int i = 0; i <= degree; i++) {
 
-		if (i == 0) {
-			os << coefficient[i];
-		}
-		else if (i == 1) {
-			os << " + " << coefficient[i] << "x";
+		if (i == 0){
+			os << std::fixed << std::setprecision(2) << coefficient[i];
 		}
 		else {
-			os << " + " << coefficient[i] << "x^" << i;
+
+			if (coefficient[i] != 0) 
+				os << " + " << std::fixed << std::setprecision(2) << coefficient[i] << " * X^" << i;
+			}
 		}
 
 	}
 
-}
+
 
 
 

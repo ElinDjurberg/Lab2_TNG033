@@ -83,8 +83,11 @@ Logarithm* Logarithm::clone() const {
 
 void Logarithm::display(std::ostream& os) const {
 
+	if (std::abs(C1) > EPSILON) {
+		os << C1 << " + ";
+	}
 
-	os << C1 << " + " << C2 << " * " << "Log_" << b
+	os << C2 << " * " << "Log_" << b
 		<< " ( " << *basclassptr << " ) ";
 	//måste lägga till stjärna för att få det att funka
 }
