@@ -5,12 +5,6 @@
 
 #include "expression.h"
 
-//bool Expression::isRoot(const double x) const {
-//	return = 0;
-//}
-
-
-
 std::ostream& operator<<(std::ostream& os, const Expression& a)
 {
 	//var ska display ligga??

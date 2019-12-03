@@ -52,13 +52,4 @@ protected:
 
 };
 
-
-//std::ostream& operator<<(std::ostream& os, const Expression& a){
-//	os << a;
-//	return os;
-//}
-
-
-
-
 #endif

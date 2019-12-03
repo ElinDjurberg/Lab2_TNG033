@@ -6,30 +6,24 @@
 #include "logarithm.h"
 #include "polynomial.h"
 
-
-
-
-//Default constructor
-//l0 = 1.00*Log_2( 0.00 + 1.00 * X^1 )
-
-
-//double param, result;
-//param = 5.5;
-//result = log(param);
-// är detta rätt 
 Logarithm::Logarithm() :C1{ 0.0 }, C2{ 1.0 }, b{ 2 } {
 	//kan vi kalla på andra subclassen polynom??
+	
+	
+	// det här är samma som att nämna dom där uppe: C1{ 0.0 }, C2{ 1.0 }, b{ 2 }
 	//C1 = 0.0;
 	//C2 = 1.0;
 	//b = 2;
 	double V[2] = { 0.0, 1.0 };
-	//Skapas i heap obs måste radera
+
+	// Skapas i heap
+	// MÅSTE READERA SEDAN!!!!!!!!
+
 	basclassptr = new Polynomial{ 1, V };
 	
 }
 
 //copy constructor
-//Vi måste ha en copy constructor 
 //vi kopierar över allt i log till this(den vi är i), Dock kan v inte ha att de pekar på samma objekt för det blir konstigt när någon blir raderad
 //Därför måste vi kopiera det log pekar på därför gör vi log.basclassptr->clone() 
 //punkten är för att det är referens och pilen är för att basclassptr är en pekare som ska peka på clone()
@@ -78,7 +72,6 @@ Logarithm* Logarithm::clone() const {
 	Logarithm* log1 = new Logarithm(*this);
 	return log1;
 }
-
 
 
 void Logarithm::display(std::ostream& os) const {
