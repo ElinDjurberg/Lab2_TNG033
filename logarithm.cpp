@@ -32,19 +32,18 @@ Logarithm::Logarithm(const Logarithm& log) : C1{ log.C1 }, C2{ log.C2 }, b{ log.
 
 
 Logarithm::~Logarithm() {
-
-	C1 = 0.00;
+	
+	/* C1 = 0.00;
 	C2 = 0.00;
-	b = 0;
+	b = 0; */
+	// detta behövs ej, tar inte bort minne, bara nollställer
 	
 	//delete[] basclassptr;
 	//basclassptr = nullptr;
 
-
 	//varför?
 	delete basclassptr;
 	basclassptr = nullptr;
-	
 }
 
 //hur funkar denna?? basclassptr = E.clone(); och vad säger Expression()
@@ -60,10 +59,9 @@ Logarithm::Logarithm(const Expression& E, double c1, double c2, int B) : Express
 	//use clone
 }
 
+// assignment
 Logarithm Logarithm::operator=(Logarithm log) {
 
-	//ska den se ut såhär??
-	//Polynomial temp = Polynomial(P);
 	std::swap(C1, log.C1);
 	std::swap(C2, log.C2);
 	std::swap(b, log.b);

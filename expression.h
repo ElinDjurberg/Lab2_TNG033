@@ -36,7 +36,7 @@ public:
 protected:
 	//default constructor, använder datorns egna. Vad händer då? När vi har den som default???
 	//behöver ingen constructor för man kan inte göra en egen instance
-	//Expression() = default;
+	Expression() = default;
 
 	//den ska vara protected för vi vill ej ha den public
 	//vi sätter den till 0 för att tvinga de andra subclasserna att initializera denna functionen

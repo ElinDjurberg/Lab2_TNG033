@@ -99,7 +99,6 @@ int main() {
 
 
 
-
     /*
 	p1[2] = 4.4; //this should not compile <-- test
     */
@@ -140,7 +139,6 @@ int main() {
 	2 LEAKS FINNS HÄR
 	*/
 
-
     Logarithm l0;  // default constructor
     Logarithm l1{p3 + 2, 2, 3, 10};// andra punkten i instructionen
     Logarithm l2{l1};  // copy constructor
@@ -149,9 +147,27 @@ int main() {
     std::cout << "l1 = " << l1 << '\n';
     std::cout << "l2 = " << l2 << '\n';
 
-	// Expression* e1 = new Polynomial(p4);
-    // Expression* e2 = new Logarithm(l1);
-        //*e1 = *e2; //<-- should not compile!!
+	Expression* e1 = new Polynomial(p4);
+	// systemet själv gör minne för pekaren
+	// new gör minne på polynomet som e1 ska peka på
+	// destructorn körs inte för dessa två
+	// destructorn tar inte bort e1, e2
+	// destructorn kan inte anropas automatiskt
+
+    Expression* e2 = new Logarithm(l1);
+    //*e1 = *e2; //<-- should not compile!!
+
+	// kan inte sätta i expression så destructorn är public, så man når dom, då kommer *e1=*e2 kompilera
+
+	// noll memory leaks, måste göra HÄR, manuellt
+	// delete e1;
+	// delete e2;
+
+	// man avreferar pekarna
+	// ingen tilldelningsoperator som matchar när den ena pekar på polynom
+	// och den andra på logarithm
+	// expressions tilldelnings är i private
+	// 'Expression::operator =': cannot access protected member declared in class 'Expression'
 
     /*****************************************************
      * TEST PHASE 8                                      *

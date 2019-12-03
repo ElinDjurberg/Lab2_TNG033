@@ -22,6 +22,7 @@ public:
 	//Destructor
 	~Logarithm();
 
+	// assignment
 	Logarithm operator=(Logarithm log);
 
 	//Logarithm(const Expression E, const double C1, const double C2, const int b);
@@ -39,9 +40,9 @@ private:
 	double C1 = 0.00;
 	double C2 = 0.00;
 	int b = 0;
+
 	//Pointer of typ expression that can points to Polynomial and logaritm
 	Expression* basclassptr = nullptr;
-
 };
 
 #endif

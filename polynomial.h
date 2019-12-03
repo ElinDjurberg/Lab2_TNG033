@@ -21,15 +21,14 @@ public:
 	//constructor
 	explicit Polynomial(const int i, const double arr[]);
 
-
 	// copy constructor
 	Polynomial(const Polynomial& p);
 
 	//destructor. Ska denna kan inte vara default då vi på ett ställe har new vilket betyder att vi måste frigöra heapen.
 	~Polynomial();
 
+	// clone funktion
 	Polynomial* clone() const override;
-
 
 	//tillger värde
 	double& operator[](int i);
@@ -44,6 +43,7 @@ public:
 
 	friend Polynomial operator+(const Polynomial lhs, const Polynomial rhs);
 
+	// assignment
 	Polynomial operator=(Polynomial P);
 
 //kanske inte behöver protected
@@ -59,8 +59,6 @@ private:
 	int degree = 0;
 	//pekare kan vi nå mellan klasserna, pekare kan väl bara peka nedåt . Pekare till en array
 	double* coefficient = nullptr;
-
-
 };
 
 

@@ -36,25 +36,14 @@ Polynomial::Polynomial(double d)
 }
 
 
-//Polynomial::~Polynomial(Polynomial& p) {
-//
-//	delete = p.degree;
-//	delete[] p;
-//	p = nullptr;
-//
-//
-//}
-
-
 //sätter graden till 0
 //raderar arrayn som coefficient pekar på 
 //sätter pekaren till null
 Polynomial::~Polynomial() {
 
-	degree = 0;
+	// degree = 0; // behövs ej nollställa, tar inte bort något minne
 	delete[] coefficient;
 	coefficient = nullptr;
-
 }
 
 
@@ -63,7 +52,7 @@ Polynomial::~Polynomial() {
 Polynomial::Polynomial(const Polynomial& p) :
 	degree{ p.degree }, coefficient{ new double[p.degree + 1]{0.0} }
 {
-	double slots = degree + 1;
+	double slots = degree+1;
 
 	for (int i = 0; i < slots; i++) {
 		this->coefficient[i] = p.coefficient[i];
@@ -116,8 +105,6 @@ void Polynomial::display(std::ostream& os) const {
 // inte refrens i det vi får in i argumentet, det ska vi inte ändra
 Polynomial Polynomial::operator=(Polynomial P) {
 
-	//ska den se ut såhär??
-	//Polynomial temp = Polynomial(P);
 	std::swap(degree, P.degree);
 	std::swap(coefficient, P.coefficient);
 
