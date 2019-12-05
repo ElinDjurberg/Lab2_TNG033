@@ -48,7 +48,7 @@ protected:
 	//const är för vi vill ej ändra bara jämföra
 	//referenser kan peka neråt i subclasserna
 	//man har virtual för att datorn ska förstår att man ska ha det som man pekar på och inte använda de funktioner som den är ifrån. 
-	virtual Expression& operator=(const Expression&) = delete;
+	Expression& operator=(const Expression&) = delete;
 
 };
 

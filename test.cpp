@@ -160,8 +160,8 @@ int main() {
 	// kan inte sätta i expression så destructorn är public, så man når dom, då kommer *e1=*e2 kompilera
 
 	// noll memory leaks, måste göra HÄR, manuellt
-	// delete e1;
-	// delete e2;
+	 delete e1;
+	 delete e2;
 
 	// man avreferar pekarna
 	// ingen tilldelningsoperator som matchar när den ena pekar på polynom
