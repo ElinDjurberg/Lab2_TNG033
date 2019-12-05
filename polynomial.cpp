@@ -177,8 +177,7 @@ Polynomial Polynomial::operator=(Polynomial P) {
 
 	}
 
-//fortsätt jobba med kolla om den är rätt
-	//Denna är för vänster sida och den vill vi kunna ändra på .
+//Denna är för vänster sida och den vill vi kunna ändra på .
 double& Polynomial::operator[](int i) {
 
 	return this->coefficient[i];

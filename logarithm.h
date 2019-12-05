@@ -26,10 +26,12 @@ public:
 	Logarithm operator=(Logarithm log);
 
 	//Logarithm(const Expression E, const double C1, const double C2, const int b);
+	
+	// clone funktion
 	Logarithm* clone() const override;
+
 	Logarithm(const Logarithm& log);
 	
-	//ska denna ta in en double?
 	virtual double operator()(const double d) const override;
 	//virtual double operator()(const Expression E, double d) const override;
 
