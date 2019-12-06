@@ -24,7 +24,7 @@ Polynomial::Polynomial(const int n, const double arr[])
 	//coefficient = nullptr;
 }
 
-//Hur funkar denna?????
+
 //Denna gör att vi ej behöver 3st additionsoperatorer utan den konverterar vår dubbel till ett polynom
 //Vi måste konvertera double till ett polynom för att kunna addera ihop double med polynom. Då måste båda vara polynom
 //Double är polynom av grad 0
@@ -67,8 +67,6 @@ Polynomial* Polynomial::clone() const {
 	Polynomial* p1 = new Polynomial(*this);
 	return p1;
 }
-
-
 
 
 
@@ -186,9 +184,9 @@ double& Polynomial::operator[](int i) {
 
 //Den är på höger sida av en tilldelningssats i huvudprogrammet. Datorn går in och hämtar värdet till den adressen vi har lagt ut.
 const double& Polynomial::operator[](int i) const {
-
 	return this->coefficient[i];
 }
+
 
 
 

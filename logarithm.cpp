@@ -16,9 +16,6 @@ Logarithm::Logarithm() :C1{ 0.0 }, C2{ 1.0 }, b{ 2 } {
 	//b = 2;
 	double V[2] = { 0.0, 1.0 };
 
-	// Skapas i heap
-	// MÅSTE READERA SEDAN!!!!!!!!
-
 	basclassptr = new Polynomial{ 1, V };
 	
 }
@@ -41,12 +38,11 @@ Logarithm::~Logarithm() {
 	//delete[] basclassptr;
 	//basclassptr = nullptr;
 
-	//varför?
 	delete basclassptr;
 	basclassptr = nullptr;
 }
 
-//hur funkar denna?? basclassptr = E.clone(); och vad säger Expression()
+// basclassptr = E.clone(); och vad säger Expression()
 //vi kan inte ha const för då kan vi inte assigna den 	Expression* e1 = new Polynomial(p4);
 //*e1 = *e2; Vaför funkar inte denna
 Logarithm::Logarithm(const Expression& E, double c1, double c2, int B) : Expression(), C1{ c1 }, C2{ c2 }, b{ B }
@@ -88,11 +84,8 @@ void Logarithm::display(std::ostream& os) const {
 	//måste lägga till stjärna för att få det att funka
 }
 
-//ska vi verkligen ha denna? I expression så ville den att vi skulle implementera detta
+// I expression så ville den att vi skulle implementera detta
 double Logarithm::operator()(const double d) const {
-	//double sylvia = d;
-	//double hej = this->b;
-	//double nej = log(d);
 
 	//hur ska vi komma åt operator() i polynomial och det ska ju kunna vara en expression också
 	//ska vi ha en kopy konstructor också

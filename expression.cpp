@@ -7,7 +7,6 @@
 
 std::ostream& operator<<(std::ostream& os, const Expression& a)
 {
-	//var ska display ligga??
 	a.display(os); //dynamic binding occurs	
 
 	return os;
@@ -31,6 +30,4 @@ bool Expression::isRoot(const double x) const {
 
 }
 
-
-//ADD implementation of the member functions for class Expression
 

@@ -46,10 +46,8 @@ public:
 	// assignment
 	Polynomial operator=(Polynomial P);
 
-//kanske inte behöver protected
+
 protected:
-	//varför vill vi ha den här?
-	//var är override??
 
 	void display(std::ostream& os) const override;
 

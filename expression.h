@@ -11,12 +11,18 @@
 #include<iomanip>
 
 constexpr double EPSILON = 1.0e-5;
+//abstract class cannot make instances
+//=0 makes it a pure virtual = class abstract
+//alla virituella functioner blir automatiskt virituella i subclasserna
 
+//=0 gör det en pure virituel function
+// minst en =0 class abstract
 
 class Expression
 {
 public:
 	// Destructor Man måste ha en destructor
+	//virtual för den ska kalla på rätt destructor polynomial eller logaritm.
 	virtual ~Expression() = default;  // Expression is a polymorphic class
 	
 	//vi sätter den till 0 och tvingar subclasserna att implementera denna funktion
